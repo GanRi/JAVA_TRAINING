@@ -21,11 +21,11 @@ public class WorkingDay {
 		case Wed:
 		case Thur:
 		case Fri:
-			result = true;
+			result = true;  // return true; local parameter is not needed.
 			break;
 		case Sat:
 		case Sun:
-			result = false;
+			result = false; // return false; local parameter is not needed.
 		}
 		
 		return result;
@@ -44,3 +44,9 @@ public class WorkingDay {
 	}
 
 }
+
+
+/*
+ * boolean result;
+ * 
+ */
