@@ -43,13 +43,13 @@ public class InterpretFrame extends JFrame{
 	final JLabel returnValueLabel = new JLabel("Return Value");
 
 	public InterpretFrame(){
-
+		super.setName("Interpret");
 		this.setTablesRelation();
 
 		this.initLayout();
 		this.initEventHandler();
 
-		super.setSize(new Dimension(500, 1200));
+		super.setSize(new Dimension(1000, 1600));
 		super.pack();
 		super.setVisible(true);
 	}
