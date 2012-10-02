@@ -31,7 +31,7 @@ public class InterpretFrame extends JFrame{
 	private final List<Object> objectList = UtilityClass.createObjectList();
 
 	protected final JButton createObjectButton = new JButton("Create Object");
-	//public final JButton createArrayButton = new JButton("Create Array");
+	public final JButton createArrayButton = new JButton("Create Array");
 
 	ObjectTable objectTable = new ObjectTable(this.objectList);
 	FieldTable fieldTable = new FieldTable(this.objectList);
@@ -72,7 +72,7 @@ public class InterpretFrame extends JFrame{
 
 		final JPanel buttonPanel = new JPanel();
 		buttonPanel.add(this.createObjectButton);
-		//buttonPanel.add(this.createArrayButton);
+		buttonPanel.add(this.createArrayButton);
 
 		final JPanel objectTablePanel = new JPanel();
 		objectTablePanel.setLayout(new BorderLayout());
@@ -188,6 +188,28 @@ public class InterpretFrame extends JFrame{
 
 
 		});
+		
+		this.createArrayButton.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(final ActionEvent actionevent) {
+				final ArrayCreationDialog arrayCreateDialog= new ArrayCreationDialog(InterpretFrame.this, InterpretFrame.this.objectList);
+				arrayCreateDialog.init();
+
+				arrayCreateDialog.addWindowListener(new WindowAdapter(){
+
+					@Override
+					public void windowClosed(final WindowEvent arg0) {
+						InterpretFrame.this.objectTable.refreshTable();
+					}
+
+				});
+				arrayCreateDialog.setVisible(true);
+			}
+		});
+		
 	}
+	
+	
 
 }

@@ -30,6 +30,7 @@ public class ClockWindow extends Frame {
 		this.setVisible(true);
 		addWindowListener(new WindowAdapter() {
 			public void windowClosing(WindowEvent evt) {
+				save();
 				dispose();
 				System.exit(0);
 			}
@@ -58,6 +59,21 @@ public class ClockWindow extends Frame {
 			setLocation(clockSetting.getLocation());
 			System.out.println(clockSetting.getLocation().getX());
 		}
+	}
+	
+	private void save(){
+		Preferences p = Preferences.userRoot();
+		Preferences clock = p.node("LiYanClock");
+		clock.putInt("LiYanClockLocationx",(int)getLocation().getX());
+        System.out.println(getLocation().getX());
+        clock.putInt("LiYanClockLocationy", (int)getLocation().getY());
+        System.out.println(getLocation().getY());
+        try {
+            p.flush();
+        } catch (BackingStoreException e) {
+            // TODO Auto-generated catch block
+            e.printStackTrace();
+        }
 	}
 
 }
