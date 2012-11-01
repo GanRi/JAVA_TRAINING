@@ -21,7 +21,7 @@ public class SplitString {
 		String str = "8387469847748748292";
 		System.out.println(splitString.split(str,3,","));
 		str = "998773";
-		System.out.println(splitString.split(str,3,","));
+		System.out.println(splitString.split(str,1,","));
 		str = "99";
 		System.out.println(splitString.split(str,3,","));
 	}
